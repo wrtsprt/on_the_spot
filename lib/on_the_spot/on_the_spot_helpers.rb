@@ -34,7 +34,7 @@ module OnTheSpot
       field_value =  object.send(field.to_sym).to_s
       field_value = field_value.html_safe if options[:raw]
 
-      html_options = { :id => "#{object.class.name.underscore}__#{field}__#{object.id}",
+      html_options = { :id => "#{object.class.name.demodulize.underscore}__#{field}__#{object.id}",
                        :class => 'on_the_spot_editing',
                        :'data-url' => update_url}
 

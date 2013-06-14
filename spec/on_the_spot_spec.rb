@@ -64,17 +64,17 @@ describe "OnTheSpot" do
 
         it "makes the correct html for an edit-field" do
           @result = @tester.on_the_spot_edit @dummy, :content
-          @result.should == "<span class=\"on_the_spot_editing\" data-cancel=\"cancel\" data-ok=\"ok\" data-tooltip=\"tooltip\" data-url=\"/bla\" id=\"r_spec/mocks/mock__content__123\">test</span>"
+          @result.should == "<span class=\"on_the_spot_editing\" data-cancel=\"cancel\" data-ok=\"ok\" data-tooltip=\"tooltip\" data-url=\"/bla\" id=\"mock__content__123\">test</span>"
         end
 
         it "makes the correct html for an edit-field with text selected on click" do
           @result = @tester.on_the_spot_edit @dummy, :content, :selected => true
-          @result.should == "<span class=\"on_the_spot_editing\" data-cancel=\"cancel\" data-ok=\"ok\" data-selected=\"true\" data-tooltip=\"tooltip\" data-url=\"/bla\" id=\"r_spec/mocks/mock__content__123\">test</span>"
+          @result.should == "<span class=\"on_the_spot_editing\" data-cancel=\"cancel\" data-ok=\"ok\" data-selected=\"true\" data-tooltip=\"tooltip\" data-url=\"/bla\" id=\"mock__content__123\">test</span>"
         end
 
         it "makes the correct html for an edit-field and overrule display-text" do
           @result = @tester.on_the_spot_edit @dummy, :content, :display_text => 'jediknight'
-          @result.should == "<span class=\"on_the_spot_editing\" data-cancel=\"cancel\" data-ok=\"ok\" data-tooltip=\"tooltip\" data-url=\"/bla\" id=\"r_spec/mocks/mock__content__123\">jediknight</span>"
+          @result.should == "<span class=\"on_the_spot_editing\" data-cancel=\"cancel\" data-ok=\"ok\" data-tooltip=\"tooltip\" data-url=\"/bla\" id=\"mock__content__123\">jediknight</span>"
         end
 
         it "makes the correct html for an edit-field and use the display-method as string" do
@@ -82,7 +82,7 @@ describe "OnTheSpot" do
           @tester.should_receive(:url_for).with({:action => 'get_attribute_on_the_spot'}).and_return('/bla-again')
 
           @result = @tester.on_the_spot_edit @dummy, :content, :display_method => 'changed_content'
-          @result.should == "<span class=\"on_the_spot_editing\" data-cancel=\"cancel\" data-display-method=\"changed_content\" data-loadurl=\"/bla-again\" data-ok=\"ok\" data-tooltip=\"tooltip\" data-url=\"/bla\" id=\"r_spec/mocks/mock__content__123\">test-changed</span>"
+          @result.should == "<span class=\"on_the_spot_editing\" data-cancel=\"cancel\" data-display-method=\"changed_content\" data-loadurl=\"/bla-again\" data-ok=\"ok\" data-tooltip=\"tooltip\" data-url=\"/bla\" id=\"mock__content__123\">test-changed</span>"
         end
 
         it "makes the correct html for an edit-field and use the display-method (as symbol)" do
@@ -90,55 +90,55 @@ describe "OnTheSpot" do
           @tester.should_receive(:url_for).with({:action => 'get_attribute_on_the_spot'}).and_return('/bla-again')
 
           @result = @tester.on_the_spot_edit @dummy, :content, :display_method => :changed_content
-          @result.should == "<span class=\"on_the_spot_editing\" data-cancel=\"cancel\" data-display-method=\"changed_content\" data-loadurl=\"/bla-again\" data-ok=\"ok\" data-tooltip=\"tooltip\" data-url=\"/bla\" id=\"r_spec/mocks/mock__content__123\">test-changed</span>"
+          @result.should == "<span class=\"on_the_spot_editing\" data-cancel=\"cancel\" data-display-method=\"changed_content\" data-loadurl=\"/bla-again\" data-ok=\"ok\" data-tooltip=\"tooltip\" data-url=\"/bla\" id=\"mock__content__123\">test-changed</span>"
         end
 
 
         it "makes the correct html for a text-area" do
           @result = @tester.on_the_spot_edit @dummy, :content, :type => :textarea
-          @result.should == "<span class=\"on_the_spot_editing\" data-cancel=\"cancel\" data-columns=\"40\" data-edittype=\"textarea\" data-ok=\"ok\" data-rows=\"5\" data-tooltip=\"tooltip\" data-url=\"/bla\" id=\"r_spec/mocks/mock__content__123\">test</span>"
+          @result.should == "<span class=\"on_the_spot_editing\" data-cancel=\"cancel\" data-columns=\"40\" data-edittype=\"textarea\" data-ok=\"ok\" data-rows=\"5\" data-tooltip=\"tooltip\" data-url=\"/bla\" id=\"mock__content__123\">test</span>"
         end
 
         it "makes the correct html for a text-area with text selected on click" do
           @result = @tester.on_the_spot_edit @dummy, :content, :type => :textarea, :selected => true
-          @result.should == "<span class=\"on_the_spot_editing\" data-cancel=\"cancel\" data-columns=\"40\" data-edittype=\"textarea\" data-ok=\"ok\" data-rows=\"5\" data-selected=\"true\" data-tooltip=\"tooltip\" data-url=\"/bla\" id=\"r_spec/mocks/mock__content__123\">test</span>"
+          @result.should == "<span class=\"on_the_spot_editing\" data-cancel=\"cancel\" data-columns=\"40\" data-edittype=\"textarea\" data-ok=\"ok\" data-rows=\"5\" data-selected=\"true\" data-tooltip=\"tooltip\" data-url=\"/bla\" id=\"mock__content__123\">test</span>"
         end
 
         it "makes the correct html for a select-box" do
           @result = @tester.on_the_spot_edit @dummy, :content, :type => :select, :data => [['test', 'This a test'], ['prod', 'Pure Production'], ['QA', 'Quality Assurance']]
-          @result.should == "<span class=\"on_the_spot_editing\" data-cancel=\"cancel\" data-edittype=\"select\" data-ok=\"ok\" data-select=\"{ 'test':'This a test', 'prod':'Pure Production', 'QA':'Quality Assurance', 'selected':'test'}\" data-tooltip=\"tooltip\" data-url=\"/bla\" id=\"r_spec/mocks/mock__content__123\">This a test</span>"
+          @result.should == "<span class=\"on_the_spot_editing\" data-cancel=\"cancel\" data-edittype=\"select\" data-ok=\"ok\" data-select=\"{ 'test':'This a test', 'prod':'Pure Production', 'QA':'Quality Assurance', 'selected':'test'}\" data-tooltip=\"tooltip\" data-url=\"/bla\" id=\"mock__content__123\">This a test</span>"
         end
 
         it "makes the correct html for a checkbox" do
           @dummy.stub!(:content).and_return(true)
           @result = @tester.on_the_spot_edit @dummy, :content, :type => :checkbox
-          @result.should == "<span class=\"on_the_spot_editing\" data-cancel=\"cancel\" data-edittype=\"checkbox\" data-ok=\"ok\" data-tooltip=\"tooltip\" data-url=\"/bla\" id=\"r_spec/mocks/mock__content__123\">true</span>"
+          @result.should == "<span class=\"on_the_spot_editing\" data-cancel=\"cancel\" data-edittype=\"checkbox\" data-ok=\"ok\" data-tooltip=\"tooltip\" data-url=\"/bla\" id=\"mock__content__123\">true</span>"
         end
 
         it "makes the correct html for an edit-field with a callback" do
           @result = @tester.on_the_spot_edit @dummy, :content, :callback => 'testCallback(value, settings);'
-          @result.should == "<span class=\"on_the_spot_editing\" data-callback=\"testCallback(value, settings);\" data-cancel=\"cancel\" data-ok=\"ok\" data-tooltip=\"tooltip\" data-url=\"/bla\" id=\"r_spec/mocks/mock__content__123\">test</span>"
+          @result.should == "<span class=\"on_the_spot_editing\" data-callback=\"testCallback(value, settings);\" data-cancel=\"cancel\" data-ok=\"ok\" data-tooltip=\"tooltip\" data-url=\"/bla\" id=\"mock__content__123\">test</span>"
         end
 
         it "makes the correct html for an edit-field with an onblur action" do
           @result = @tester.on_the_spot_edit @dummy, :content, :onblur => 'submit'
-          @result.should == "<span class=\"on_the_spot_editing\" data-cancel=\"cancel\" data-ok=\"ok\" data-onblur=\"submit\" data-tooltip=\"tooltip\" data-url=\"/bla\" id=\"r_spec/mocks/mock__content__123\">test</span>"
+          @result.should == "<span class=\"on_the_spot_editing\" data-cancel=\"cancel\" data-ok=\"ok\" data-onblur=\"submit\" data-tooltip=\"tooltip\" data-url=\"/bla\" id=\"mock__content__123\">test</span>"
         end
 
         it "makes the correct html for an edit-field with a loadurl" do
           @result = @tester.on_the_spot_edit @dummy, :content, :loadurl => '/load/data'
-          @result.should == "<span class=\"on_the_spot_editing\" data-cancel=\"cancel\" data-loadurl=\"/load/data\" data-ok=\"ok\" data-tooltip=\"tooltip\" data-url=\"/bla\" id=\"r_spec/mocks/mock__content__123\">test</span>"
+          @result.should == "<span class=\"on_the_spot_editing\" data-cancel=\"cancel\" data-loadurl=\"/load/data\" data-ok=\"ok\" data-tooltip=\"tooltip\" data-url=\"/bla\" id=\"mock__content__123\">test</span>"
         end
 
         context "a select-box with a loadurl" do
           it "makea the correct html (and not look up the value)" do
             @result = @tester.on_the_spot_edit @dummy, :content, :type => :select, :loadurl => '/load/data'
-            @result.should == "<span class=\"on_the_spot_editing\" data-cancel=\"cancel\" data-edittype=\"select\" data-loadurl=\"/load/data\" data-ok=\"ok\" data-tooltip=\"tooltip\" data-url=\"/bla\" id=\"r_spec/mocks/mock__content__123\">test</span>"
+            @result.should == "<span class=\"on_the_spot_editing\" data-cancel=\"cancel\" data-edittype=\"select\" data-loadurl=\"/load/data\" data-ok=\"ok\" data-tooltip=\"tooltip\" data-url=\"/bla\" id=\"mock__content__123\">test</span>"
           end
 
           it "use the display-text preferrably" do
             @result = @tester.on_the_spot_edit @dummy, :content, :type => :select, :loadurl => '/load/data', :display_text => 'ninja'
-            @result.should == "<span class=\"on_the_spot_editing\" data-cancel=\"cancel\" data-edittype=\"select\" data-loadurl=\"/load/data\" data-ok=\"ok\" data-tooltip=\"tooltip\" data-url=\"/bla\" id=\"r_spec/mocks/mock__content__123\">ninja</span>"
+            @result.should == "<span class=\"on_the_spot_editing\" data-cancel=\"cancel\" data-edittype=\"select\" data-loadurl=\"/load/data\" data-ok=\"ok\" data-tooltip=\"tooltip\" data-url=\"/bla\" id=\"mock__content__123\">ninja</span>"
           end
         end
       end
@@ -150,7 +150,7 @@ describe "OnTheSpot" do
 
         it "make the correct html for an edit-field" do
           @result = @tester.on_the_spot_edit @dummy, :content, :url => {:action => 'update_it_otherwise' }
-          @result.should == "<span class=\"on_the_spot_editing\" data-cancel=\"cancel\" data-ok=\"ok\" data-tooltip=\"tooltip\" data-url=\"/bla\" id=\"r_spec/mocks/mock__content__123\">test</span>"
+          @result.should == "<span class=\"on_the_spot_editing\" data-cancel=\"cancel\" data-ok=\"ok\" data-tooltip=\"tooltip\" data-url=\"/bla\" id=\"mock__content__123\">test</span>"
         end
       end
 
@@ -162,7 +162,7 @@ describe "OnTheSpot" do
         it "supports raw html" do
           @dummy.stub!(:content).and_return('<b>test</b>')
           @result = @tester.on_the_spot_edit @dummy, :content, :raw => true
-          @result.should == "<span class=\"on_the_spot_editing\" data-cancel=\"cancel\" data-ok=\"ok\" data-tooltip=\"tooltip\" data-url=\"/bla?raw=true\" id=\"r_spec/mocks/mock__content__123\"><b>test</b></span>"
+          @result.should == "<span class=\"on_the_spot_editing\" data-cancel=\"cancel\" data-ok=\"ok\" data-tooltip=\"tooltip\" data-url=\"/bla?raw=true\" id=\"mock__content__123\"><b>test</b></span>"
         end
       end
     end
