@@ -7,7 +7,7 @@ group :test do
   gem "json_pure"
   gem "rspec",   ">= 2.6.0"
   gem "rails", ">=3.0.9"
-  gem "sqlite3-ruby", :require => "sqlite3"  #gem "rcov"
+  gem "sqlite3"
   gem "simplecov", :require => false
 
   gem "rspec-rails"
